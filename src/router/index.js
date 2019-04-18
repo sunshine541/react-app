@@ -13,6 +13,6 @@ const RouterConfig = ({ history }) => {
         <Redirect to={'/login'}/>
       </Switch>
     </Router>
-  )
+)
 }
 export default RouterConfig;
