@@ -2,9 +2,9 @@
  * 所有数据model层
  */
 import user from './module/user';
-import global from './module/global';
+import root from './module/root';
 
 export default [
-  global,
+  root,
   user
 ];

@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 import dva from 'dva';
 import createLoading from 'dva-loading';
 import { createHashHistory } from 'history';

@@ -4,12 +4,12 @@
 import React from 'react';
 import { connect } from 'dva';
 import MainLayout from '../components/common/MainLayout/MainLayout';
-import Home from '../components/Home/Home'
+import Login from '../components/Login/Login'
 
-const IndexPage = (props) => {
+const LoginPage = (props) => {
   return (
     <MainLayout>
-      <Home {...props} />
+      <Login {...props} />
     </MainLayout>
   )
 };
@@ -18,4 +18,4 @@ function mapStateToProps({ user }) {
   return { user }
 }
 
-export default connect(mapStateToProps)(IndexPage);
+export default connect(mapStateToProps)(LoginPage);

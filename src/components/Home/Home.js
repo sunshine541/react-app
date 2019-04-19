@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Button, Pagination } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 class Home extends React.Component{
   constructor(props) {
@@ -31,6 +32,7 @@ class Home extends React.Component{
   render() {
     const { name } = this.state;
     const { user } = this.props;
+    console.log(name, 'aaa ')
     return (
       <div>
         <p>这是组件内的状态：{name}</p>
@@ -40,6 +42,7 @@ class Home extends React.Component{
         <Button type="primary" onClick={this.switchToLogin}>点击跳转至登录页</Button>
         <br />
         <Pagination defaultCurrent={1} total={50} showSizeChanger />
+        <FormattedMessage id="home.hello" />
       </div>
     )
   }

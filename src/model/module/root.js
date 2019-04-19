@@ -3,9 +3,10 @@
  */
 
 export default {
-  namespace: 'global',
+  namespace: 'root',
   state: {
-    lang: 'zh_CN',
+    antdLang: 'zh_CN',
+    localLang: 'zh',
   },
   subscriptions: {
     setup({ dispatch, history }) {
@@ -16,8 +17,7 @@ export default {
   },
   reducers: {
     setLang(state, { payload }) {
-      const { lang } = payload;
-      return { ...state, lang };
+      return { ...state, ...payload };
     }
   }
 }
