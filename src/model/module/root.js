@@ -5,8 +5,9 @@
 export default {
   namespace: 'root',
   state: {
-    antdLang: 'zh_CN',
-    localLang: 'zh',
+    antdLang: 'zh_CN', // antd的组件国际化
+    localLang: 'zh', // 本地站点的国际化
+    theme: 'default', // 主题设置： default默认，后续再更新
   },
   subscriptions: {
     setup({ dispatch, history }) {
@@ -16,7 +17,7 @@ export default {
     
   },
   reducers: {
-    setLang(state, { payload }) {
+    updateState(state, { payload }) {
       return { ...state, ...payload };
     }
   }

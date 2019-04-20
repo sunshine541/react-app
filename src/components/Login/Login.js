@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div>
       <h2>这是登录页</h2>
-      <FormattedMessage id="hello" />
+      <FormattedMessage id="home.hello" />
     </div>
   )
 }
