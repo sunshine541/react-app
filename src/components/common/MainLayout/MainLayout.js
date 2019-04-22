@@ -10,6 +10,7 @@ import Locale from '../Locale/Locale';
 import Head from './Head/Head';
 import Sidebar from './Sidebar/Sidebar';
 import Container from './Container/Container';
+import TabContainer from './TabContainer/TabContainer';
 import './MainLayout.scss';
 
 class MainLayout extends Component {
@@ -18,12 +19,14 @@ class MainLayout extends Component {
     return (
       <Locale>
         <div className={`theme-${theme}`}>
-          <Layout>
+          <Layout style={{ height: '100vh' }}>
             <Head />
             <Layout>
               <Sidebar />
               <Container>
-                {this.props.children}
+                <TabContainer>
+                  {this.props.children}
+                </TabContainer>
               </Container>
             </Layout>
           </Layout>

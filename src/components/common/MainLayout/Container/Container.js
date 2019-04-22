@@ -11,7 +11,7 @@ class Container extends React.Component {
     return (
       <Layout>
         <Content>
-        {this.props.children}
+          {this.props.children}
         </Content>
       </Layout>
     )

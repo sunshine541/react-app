@@ -2,14 +2,15 @@
  * 首页
  */
 import React from 'react';
-import { Button, Pagination } from 'antd';
+import { Button, Pagination, Form, Input } from 'antd';
 import { FormattedMessage } from 'react-intl';
 
 class Home extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      name: ' Alice'
+      name: ' Alice',
+      key: new Date().getTime(),
     }
   }
   // 更新组件内状态
@@ -29,12 +30,31 @@ class Home extends React.Component{
   switchToLogin = () => {
     this.props.history.push({ pathname: '/login' })
   }
+  // 组件刷新
+  freshComp = () => {
+    this.setState({
+      key: new Date().getTime(),
+    })
+    this.props.form.resetFields();
+  }
   render() {
-    const { name } = this.state;
-    const { user } = this.props;
+    const { name, key } = this.state;
+    const { user, form } = this.props;
+    const { getFieldDecorator } = form;
     console.log(name, 'aaa ')
     return (
-      <div>
+      <div key={key}>
+        <Button onClick={this.freshComp}>刷新组件，key：{key}</Button>
+        <Form>
+          <Form.Item>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+              initialValue: 123
+            })(
+              <Input  placeholder="Username" />
+            )}
+          </Form.Item>
+        </Form>
         <p>这是组件内的状态：{name}</p>
         <p>这是来自model里的数据：  {JSON.stringify(user.initState)}</p>
         <p>这是走完接口后更新到model层，再反应到view层的数据：{JSON.stringify(user.fresh)}</p>
@@ -47,4 +67,4 @@ class Home extends React.Component{
     )
   }
 }
-export default Home;
+export default Form.create()(Home);
